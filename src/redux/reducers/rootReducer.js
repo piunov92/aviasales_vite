@@ -1,9 +1,9 @@
-import { combineReducers } from "redux"
-import { sortReducer, filterReducer } from "./reducers"
+import { combineReducers } from 'redux'
+import { sortReducer, filterReducer } from './reducers'
 
 const rootReducer = combineReducers({
   sortReducer,
-  filterReducer
+  filterReducer,
 })
 
 export default rootReducer
