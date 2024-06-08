@@ -1,7 +1,26 @@
-// /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useDispatch } from 'react-redux'
+import { cheap, fast, optimal } from '../../redux/actions/actions'
 import style from './Sort.module.scss'
 
 function Sort() {
+  // const sort = useSelector((state) => {
+  //   console.log('Sort state > ', state)
+  //   const { sortReducer } = state
+  //   return sortReducer.sortName
+  // })
+  
+  const dispatch = useDispatch()
+
+  const handleCheap = () => {
+    dispatch(cheap())
+  }
+  const handleFast = () => {
+    dispatch(fast())
+  }
+  const handleOptimal = () => {
+    dispatch(optimal())
+  }
+
   return (
     <div className={style['sort-group']}>
       <div className={style['sort-group__item']}>
@@ -10,9 +29,7 @@ function Sort() {
           type='radio'
           name='radio'
           value='1'
-          onChange={() => {
-            console.log('radio-1')
-          }}
+          onChange={handleCheap}
         />
         <label htmlFor='radio-1'>Самый дешевый</label>
       </div>
@@ -22,9 +39,7 @@ function Sort() {
           type='radio'
           name='radio'
           value='2'
-          onChange={() => {
-            console.log('radio-2')
-          }}
+          onChange={handleFast}
         />
         <label htmlFor='radio-2'>Самый быстрый</label>
       </div>
@@ -34,9 +49,7 @@ function Sort() {
           type='radio'
           name='radio'
           value='3'
-          onChange={() => {
-            console.log('radio-3')
-          }}
+          onChange={handleOptimal}
         />
         <label htmlFor='radio-3'>Оптимальный</label>
       </div>

@@ -1,0 +1,8 @@
+export const CHEAP = 'SORT/CHEAP'
+export const FAST = 'SORT/FAST'
+export const OPTIMAL = 'SORT/OPTIMAL'
+export const ALL = 'FILTER/ALL'
+export const NO_TRANSFERS = 'FILTER/NO_TRANSFERS'
+export const ONE_TRANSFERS = 'FILTER/ONE_TRANSFERS'
+export const TWO_TRANSFERS = 'FILTER/TWO_TRANSFERS'
+export const THREE_TRANSFERS = 'FILTER/THREE_TRANSFERS'
