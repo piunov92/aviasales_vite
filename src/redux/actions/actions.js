@@ -7,6 +7,7 @@ import {
   ONE_TRANSFERS,
   TWO_TRANSFERS,
   THREE_TRANSFERS,
+  TICKETS_LOAD_ID,
 } from '../types/types'
 
 export const cheap = () => {
@@ -53,5 +54,17 @@ export const threeTransfers = (checked) => {
   return {
     type: THREE_TRANSFERS,
     checked,
+  }
+}
+export const ticketsLoadId = () => {
+  return async (dispatch) => {
+    const response = await fetch(
+      'https://aviasales-test-api.kata.academy/search',
+    )
+    const {searchId} = await response.json() 
+    dispatch({
+      type: TICKETS_LOAD_ID,
+      searchId,
+    })
   }
 }

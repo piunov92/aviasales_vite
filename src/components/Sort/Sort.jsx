@@ -8,7 +8,7 @@ function Sort() {
   //   const { sortReducer } = state
   //   return sortReducer.sortName
   // })
-  
+
   const dispatch = useDispatch()
 
   const handleCheap = () => {

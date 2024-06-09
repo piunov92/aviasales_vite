@@ -15,7 +15,6 @@ const initStateFilterReducer = {
 }
 
 export const filterReducer = (state = initStateFilterReducer, action) => {
-  console.log('filterReducer action >>>>>> ', action)
   switch (action.type) {
     case ALL:
       return {

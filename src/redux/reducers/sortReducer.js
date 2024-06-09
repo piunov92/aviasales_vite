@@ -5,7 +5,6 @@ const initStateSortReducer = {
 }
 
 export const sortReducer = (state = initStateSortReducer, action) => {
-  // console.log('sortReducer > ', action)
   switch (action.type) {
     case CHEAP:
       return {

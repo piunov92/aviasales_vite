@@ -13,7 +13,6 @@ import { useEffect } from 'react'
 function Filters() {
   const checked = useSelector((state) => {
     const { filterReducer } = state
-    console.log('FilterReducer checked > ', filterReducer)
     return filterReducer
   })
 
@@ -53,8 +52,13 @@ function Filters() {
     ) {
       dispatch(all(true))
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checked.noTransfers, checked.oneTransfer, checked.threeTransfers, checked.twoTransfers])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    checked.noTransfers,
+    checked.oneTransfer,
+    checked.threeTransfers,
+    checked.twoTransfers,
+  ])
 
   return (
     <div className={style.filters}>
