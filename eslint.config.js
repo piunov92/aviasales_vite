@@ -1,8 +1,18 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc'
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js'
 import { fixupConfigRules } from '@eslint/compat'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
+})
 
 export default [
   { files: ['**/*.js'], languageOptions: { sourceType: 'script' } },
@@ -13,13 +23,21 @@ export default [
     files: ['**/*.jsx'],
     languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } },
   },
-  ...fixupConfigRules(pluginReactConfig),
+  ...fixupConfigRules(compat.extends('plugin:react/recommended')),
+  ...fixupConfigRules(compat.extends('plugin:react-hooks/recommended')),
   {
     rules: {
       'no-unused-vars': 'error',
       'no-undef': 'error',
-      'react/react-in-jsx-scope': 'off',
+      'react/react-in-jsx-scope': 'warn',
       'react/jsx-uses-react': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
 ]

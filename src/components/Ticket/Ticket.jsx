@@ -1,3 +1,4 @@
+import React from 'react'
 import TicketData from '../TicketData/TicketData'
 import style from './Ticket.module.scss'
 

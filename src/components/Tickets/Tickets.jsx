@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import Ticket from '../Ticket/Ticket'
 import style from './Tickets.module.scss'

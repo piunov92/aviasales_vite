@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ticketsLoadId } from '../redux/actions/actions'
@@ -14,6 +15,7 @@ function App() {
 
   useEffect(() => {
     dispatch(ticketsLoadId())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

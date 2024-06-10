@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import style from './Error.module.scss'
 import icon from './icon.svg'

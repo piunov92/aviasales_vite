@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { InfinitySpin } from 'react-loader-spinner'
 import style from './Spin.module.scss'

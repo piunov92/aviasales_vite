@@ -1,3 +1,4 @@
+import React from 'react'
 import style from './TicketData.module.scss'
 
 function TicketData() {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   all,
@@ -52,6 +53,7 @@ function Filters() {
     ) {
       dispatch(all(true))
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     checked.noTransfers,
     checked.oneTransfer,

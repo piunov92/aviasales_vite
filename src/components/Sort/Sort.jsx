@@ -1,3 +1,4 @@
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { cheap, fast, optimal } from '../../redux/actions/actions'
 import style from './Sort.module.scss'
