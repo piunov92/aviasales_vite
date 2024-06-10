@@ -2,7 +2,7 @@ import TicketData from '../TicketData/TicketData'
 import style from './Ticket.module.scss'
 
 // eslint-disable-next-line react/prop-types
-function Ticket({price}) {
+function Ticket({ price }) {
   return (
     <div className={style.ticket}>
       <div className={style.ticket__header}>
