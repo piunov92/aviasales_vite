@@ -11,6 +11,8 @@ import {
   ERROR_DISPLAY_ON,
   ERROR_DISPLAY_OFF,
   TICKETS_LOAD_DATA,
+  LOADER_DISPLAY_ON,
+  LOADER_DISPLAY_OFF,
 } from '../types/types'
 
 export const cheap = () => {
@@ -82,6 +84,7 @@ export const ticketsLoadId = () => {
 export const ticketsLoadData = (searchId) => {
   return async (dispatch) => {
     try {
+      dispatch(loaderON())
       const response = await fetch(
         `https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`,
       )
@@ -89,7 +92,6 @@ export const ticketsLoadData = (searchId) => {
         throw new Error('Something went wrong, try reloading the page')
       }
       const { tickets, stop } = await response.json()
-      console.log(tickets)
       const transformData = tickets.map((item) => ({
         ...item,
         id: Math.random().toString(16).slice(2),
@@ -99,9 +101,21 @@ export const ticketsLoadData = (searchId) => {
         tickets: transformData,
         stop,
       })
+      dispatch(loaderOFF())
     } catch (err) {
       dispatch(errorOn(err.message))
+      dispatch(loaderOFF())
     }
+  }
+}
+export const loaderON = () => {
+  return {
+    type: LOADER_DISPLAY_ON,
+  }
+}
+export const loaderOFF = () => {
+  return {
+    type: LOADER_DISPLAY_OFF,
   }
 }
 export const errorOn = (text) => (dispatch) => {
