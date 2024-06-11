@@ -10,7 +10,15 @@ function Tickets() {
     <div className={style.tickets}>
       <Spin />
       {data.length > 0 &&
-        data.map((item) => <Ticket key={item.id} price={item.price} />)}
+        data.map((item) => (
+          <Ticket
+            key={item.id}
+            price={item.price}
+            logo={item.carrier}
+            forward={item.segments[0]}
+            back={item.segments[1]}
+          />
+        ))}
       <button className={style.tickets__button} type='button'>
         ПОКАЗАТЬ ЕЩЕ 5 БИЛЕТОВ!
       </button>

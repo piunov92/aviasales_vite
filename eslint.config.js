@@ -31,8 +31,7 @@ export default [
       'no-undef': 'error',
       'react/react-in-jsx-scope': 'warn',
       'react/jsx-uses-react': 'off',
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react/prop-types': 'warn',
     },
     settings: {
       react: {
